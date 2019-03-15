@@ -14,17 +14,14 @@ getUserLocation = () => {
             this.getLocalWeather(api);
         });
     } else {
-        console.log('Cannot grab user location! Location permissions needed.')
+        console.alert('Cannot grab user location! Location permissions needed.')
     }
 }
 
 getLocalWeather = url => {
     fetch(url)
     .then(res => res.json())
-    .then(data => {
-        console.log(data);
-        this.updateDOMValues(data);
-    })
+    .then(data => this.updateDOMValues(data))
 }
 
 updateDOMValues = weatherObj => {
